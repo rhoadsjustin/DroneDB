@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import {Slider, Slide, Button, Icon, Row} from 'react-materialize';
+import {Link} from 'react-router-dom';
+import './App.css';
 import slider1 from './drone1.gif';
 
 
@@ -30,7 +32,11 @@ class Landing extends Component {
           </Slider>
         </Row>
         <Row className='center'>
-          <Button large waves='light'>Start Your Drone Build<Icon left>build</Icon></Button>
+          <Link to={'/build'}>
+            <Button large waves='light'>Start Your Drone Build
+              <Icon left>build</Icon>
+            </Button>
+          </Link>
         </Row>
       </div>
     )

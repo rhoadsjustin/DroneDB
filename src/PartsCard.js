@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import {Col,Row, Button, Icon, Collapsible, CollapsibleItem} from 'react-materialize'
+import {Col,Row, Collapsible, CollapsibleItem} from 'react-materialize';
+import './App.css'
 
 class Partscard extends Component {
   render() {
