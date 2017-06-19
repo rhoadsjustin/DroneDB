@@ -1,8 +1,32 @@
 import React, { Component } from 'react';
 import {Col,Row, Collapsible, CollapsibleItem} from 'react-materialize';
-import './App.css'
+import './App.css';
+import DroneDBModel from './models/DroneDB';
+
 
 class Partscard extends Component {
+  constructor(){
+    super()
+    this.state = ({
+      part: {
+        name: '',
+        link: '',
+        price: '',
+        category: ''
+      }
+
+    })
+  }
+  fetchData(){
+    DroneDBModel.all().then( (res) => {
+      this.setState ({
+
+      })
+    })
+  }
+  componentDidMount(){
+    this.fetchData()
+  }
   render() {
     return (
       <Row>
