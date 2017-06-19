@@ -5,14 +5,12 @@ class Partscard extends Component {
   render() {
     return (
         <Col s={6} m={10} l={6}>
-          <Card className='small'
+          <Card className='large'
           	header={<CardTitle>Choose your Parts Here</CardTitle>}>
-
-
-            Here are the available parts
+            <h5>Here are the available parts</h5>
             <Collection>
             	<CollectionItem href='#'>Frame 1</CollectionItem>
-            	<CollectionItem href='#' active>Frame 2</CollectionItem>
+            	<CollectionItem href='#'>Frame 2</CollectionItem>
             	<CollectionItem href='#'>Frame 3</CollectionItem>
             </Collection>
           </Card>
