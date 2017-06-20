@@ -5,9 +5,9 @@ import OverviewCard from './OverviewCard.js';
 class Gallery extends Component {
   render() {
     return (
-      <Row>
-        <OverviewCard />
-      </Row>
+        <Row className="center">
+          <OverviewCard />
+        </Row>
     )
   }
 }
