@@ -12,7 +12,7 @@ render() {
   return (
       <div>
         <Row>
-          <Navbar brand='logo' right><Link to={'/'}></Link>
+          <Navbar className='navbar' brand='logo' right><Link to={'/'}></Link>
             <NavItem><Link to={'/build'}>Build a Drone</Link></NavItem>
             <NavItem><Link to={'/gallery'}>Gallery</Link></NavItem>
             <NavItem><Link to={'/login'}>Login</Link></NavItem>
