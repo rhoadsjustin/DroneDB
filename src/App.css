@@ -5,12 +5,10 @@
 .navbar {
   background: #444444;
   box-shadow: none;
-  margin: 0;
+  margin-bottom: -20px;
 }
 
-img {
-  margin: 0;
-}
+
 
 .button {
   font-family: futura;
