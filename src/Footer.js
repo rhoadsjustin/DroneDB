@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import {Footer as Footy} from 'react-materialize';
-// import {Link} from 'react-router';
+import './App.css';
 
 
 class Footer extends Component {
   render() {
     return (
-      <Footy copyrights="&copy 2015 Copyright Text"
+      <Footy className='footer' copyrights="&copy 2015 Copyright Text"
         links={
           <ul>
             <li><a className="grey-text text-lighten-3" href="#!">Link 1</a></li>

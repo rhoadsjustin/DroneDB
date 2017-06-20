@@ -33,9 +33,7 @@ class Landing extends Component {
         </Row>
         <Row className='center'>
           <Link to={'/build'}>
-            <Button large waves='light'>Start Your Drone Build
-              <Icon left>build</Icon>
-            </Button>
+            <Button className='button' large waves='light'>Start Your Drone Build<Icon left className='icon'>build</Icon></Button>
           </Link>
         </Row>
       </div>

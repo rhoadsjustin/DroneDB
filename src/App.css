@@ -1,31 +1,34 @@
-.App {
-  text-align: center;
+* {
+  font-family: futura;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.navbar {
+  background: #444444;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
+.footer {
+  background-color: #4A4A4A;
+}
+
+.button {
+  font-family: futura;
   color: white;
+  background: #01C5CF;
+  box-shadow: none;
+  width: 325px;
+  height: 50px;
+}
+.button:hover {
+  color: #01C5CF;
+  background: none;
+  border: 2px solid #01C5CF;
+  box-shadow: none;
 }
 
-.App-intro {
-  font-size: large;
+body {
+  background-color: #CCD3DA;
 }
 
-Button a {
-  color: white;
-}
-
-.partHeader {
-  color: black;
-}
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+.card-specs {
+  text-align: left;
 }
