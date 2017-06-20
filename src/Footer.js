@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import {Footer as Footy} from 'react-materialize';
 import './App.css';
 
-
 class Footer extends Component {
   render() {
     return (

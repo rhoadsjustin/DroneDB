@@ -21,6 +21,7 @@ class Landing extends Component {
             	</Slide>
             	<Slide
             		src={slider2}
+            		title="Click Below"
             		placement="left">
             	</Slide>
             	<Slide

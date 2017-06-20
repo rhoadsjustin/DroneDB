@@ -1,47 +1,27 @@
 import React, { Component } from 'react';
-import {Col,Row, Collapsible, CollapsibleItem} from 'react-materialize';
+import {Col,Row, Collapsible} from 'react-materialize';
+import PartComp from './PartComp.js';
 import './App.css';
-import DroneDBModel from './models/DroneDB';
 
 
 class Partscard extends Component {
-  constructor(){
-    super()
-    this.state = ({
-      part: {
-        name: '',
-        link: '',
-        price: '',
-        category: ''
-      }
-
-    })
-  }
-  fetchData(){
-    DroneDBModel.all().then( (res) => {
-      this.setState ({
-
-      })
-    })
-  }
-  componentDidMount(){
-    this.fetchData()
-  }
   render() {
+    let frameNodes = this.props.frames.map(frame => {
+      return (
+        <PartComp
+          name={ frame.name }
+          price={ frame.price }
+          key={ frame['_id']}
+          link={ frame.link }>
+          </PartComp>
+      )
+    })
     return (
       <Row>
         <Col s={6} m={10} l={6}>
-            <h5>Here are the available parts</h5>
+            <h5>Here are the available frames</h5>
             <Collapsible popout>
-            	<CollapsibleItem header='Part 1' icon='build'>
-                This is the item's description, price, link
-            	</CollapsibleItem>
-            	<CollapsibleItem header='Part 2' icon='build'>
-                This is the item's description, price, link
-            	</CollapsibleItem>
-            	<CollapsibleItem header='Part 3' icon='build'>
-            		This is the item's description, price, link
-            	</CollapsibleItem>
+            	{ frameNodes }
             </Collapsible>
         </Col>
         </Row>
@@ -50,4 +30,4 @@ class Partscard extends Component {
 
 }
 
-export default Partscard
+export default Partscard;
