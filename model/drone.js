@@ -45,4 +45,4 @@ var DroneSchema = new Schema({
     }
 });
 
-var Drone = mongoose.model('Drone', DroneSchema);
+module.exports = mongoose.model('Drone', DroneSchema);

@@ -10,4 +10,4 @@ var PartSchema = new Schema({
     category: String
 });
 
-var Part = mongoose.model('Part', PartSchema);
+module.exports = mongoose.model('Part', PartSchema);

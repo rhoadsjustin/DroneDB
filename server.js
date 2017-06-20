@@ -2,7 +2,7 @@
 var express = require('express'),
     mongoose = require('mongoose'),
     bodyParser = require('body-parser'),
-    Part = require('./model/part.js');
+    db = require('./model');
 
 
 //create instances
@@ -45,17 +45,49 @@ router.route('/nuke').get(function(req,res){
 });
 
 //add /parts route to our /api router here
-router.route('/parts')
+// router.route('/api/parts')
   //retrieve all parts from the database
-  .get(function(req, res) {
+app.get('/api/parts/', function(req, res) {
     //looks at our Part Schema
-    Part.find(function(err, parts) {
-      if (err)
+
+    if(req.query.category){
+
+      db.Part.find({category: req.query.category}, function(err, parts) {
+        if (err) {
+          res.send(err);
+        }
+        //responds with a json object of our database parts.
+        res.json(parts);
+      });
+
+    } else {
+
+      db.Part.find(function(err, parts) {
+        if (err)
         res.send(err);
-      //responds with a json object of our database parts.
-      res.json(parts)
-    });
+        //responds with a json object of our database parts.
+        res.json(parts)
+      });
+    }
   })
+
+
+
+  // router.route('/api/parts')
+  //   //retrieve a part from the database
+  //   .get(function(req, res) {
+  //     // to get category: req.query.category
+  //     //looks at our Part Schema
+  //     db.Part.find({category: 'frame'}, function(err, parts) {
+  //       if (err) {
+  //         res.send(err);
+  //       }
+  //       //responds with a json object of our database parts.
+  //       res.json(parts);
+  //     });
+  //   })
+
+
 
   // //post new drone to the database
   //   .post(function(req, res) {
