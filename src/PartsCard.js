@@ -6,13 +6,13 @@ import './App.css';
 
 class Partscard extends Component {
   render() {
-    let frameNodes = this.props.frames.map(frame => {
+    let partNodes = this.props.parts.map(part => {
       return (
         <PartComp
-          name={ frame.name }
-          price={ frame.price }
-          key={ frame['_id']}
-          link={ frame.link }>
+          name={ part.name }
+          price={ part.price }
+          key={ part['_id']}
+          link={ part.link }>
           </PartComp>
       )
     })
@@ -21,7 +21,7 @@ class Partscard extends Component {
         <Col s={6} m={10} l={6}>
             <h5>Here are the available frames</h5>
             <Collapsible popout>
-            	{ frameNodes }
+            	{ partNodes }
             </Collapsible>
         </Col>
         </Row>

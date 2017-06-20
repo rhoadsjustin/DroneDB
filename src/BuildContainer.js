@@ -7,28 +7,65 @@ import Partscard from './PartsCard.js';
 class BuildContainer extends Component {
   constructor(props) {
     super(props);
-    this.state = { frames: [] }
+    this.state = {
+      parts: {
+        name: '',
+        price: '',
+        link: ''
+      },
+    }
   }
-  loadFramesFromServer() {
+
+  loadPartsFromServer() {
+    console.log(this.state.categories[0]);
+
+  }
+
+  loadCategoriesFromServer() {
     $.ajax({
       method: 'GET',
-      url: 'http://localhost:3001/api/parts?category=frame'
+      url: 'http://localhost:3001/api/categories'
     })
     .then((res) => {
-      this.setState({ frames: res.parts });
+      this.setState({ categories: res.categories });
+      console.log(this.state.categories);
+      $.ajax({
+        method: 'GET',
+        url: `http://localhost:3001/api/parts?category=${this.state.categories[0]}`
+      })
+      .then((res) => {
+        console.log(res);
+        this.setState({
+          parts: res.parts
+        });
+      }, (err) => {
+        console.log('get parts error', err)
+      })
     }, (err) => {
-      console.log('get parts error', err)
-    })
+      console.log('get categories error', err)
+    });
   }
+
+  // doStuff() {
+  //   this.loadCategoriesFromServer();
+  //   this.loadPartsFromServer();
+  //
+  // }
+
+  componentWillMount() {
+  }
+
   componentDidMount() {
-    this.loadFramesFromServer();
+    this.loadCategoriesFromServer()
+    //this.loadPartsFromServer()
   }
   render() {
+
     return (
       <Row>
         <Dronecard />
-        <Partscard
-        frames={this.state.frames}/>
+        {/* <Partscard
+          parts={this.state.parts}/> */}
       </Row>
     )
   }
