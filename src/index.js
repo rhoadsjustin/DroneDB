@@ -5,7 +5,8 @@ import registerServiceWorker from './registerServiceWorker';
 import './index.css';
 
 ReactDOM.render(
-  <App />,
+  <App
+  url='http://localhost:3001/api/parts' />,
    document.getElementById('root')
  );
 registerServiceWorker();
