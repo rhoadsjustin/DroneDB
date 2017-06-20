@@ -5,7 +5,6 @@
 .navbar {
   background: #444444;
   box-shadow: none;
-  /*margin-bottom: -20px;*/
 }
 
 
@@ -35,14 +34,34 @@ div.slider {
   margin-bottom: 20px;
 }
 
+.slide-one h3 {
+  display: inline;
+  background-color: #01C5CF;
+}
+
+.slide-one h5 {
+  display: inline;
+  background-color: #01C5CF;
+}
+
+.slide-two h3 {
+  display: inline;
+  background-color: #01C5CF;
+}
+
+.slide-two h5 {
+  display: inline;
+  background-color: #01C5CF;
+}
+
 .slide-three h3 {
   display: inline;
-  background-color: black;
+  background-color: #01C5CF;
 }
 
 .slide-three h5 {
   display: inline;
-  background-color: black;
+  background-color: #01C5CF;
 }
 
 .card-specs {
