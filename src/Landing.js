@@ -3,7 +3,8 @@ import {Slider, Slide, Button, Icon, Row} from 'react-materialize';
 import {Link} from 'react-router-dom';
 import './App.css';
 import slider1 from './drone1.gif';
-import slider2 from './drone2.gif';
+import slider2 from './drone2.jpg';
+import slider3 from './drone3.jpg';
 
 
 
@@ -22,21 +23,16 @@ class Landing extends Component {
             		src={slider2}
             		title="Click Below"
             		placement="left">
-            		to start building!
             	</Slide>
             	<Slide
-            		src="http://lorempixel.com/580/250/nature/3"
-            		title="We will find a use for this"
+            		src={slider3}
             		placement="right">
-            		eventually.
             	</Slide>
           </Slider>
         </Row>
         <Row className='center'>
           <Link to={'/build'}>
-            <Button large waves='light'>Start Your Drone Build
-              <Icon left>build</Icon>
-            </Button>
+            <Button className='button' large waves='light'>Start Your Drone Build<Icon left className='icon'>build</Icon></Button>
           </Link>
         </Row>
       </div>
