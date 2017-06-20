@@ -4,31 +4,50 @@
 
 .navbar {
   background: #444444;
+  box-shadow: none;
+  margin: 0;
 }
 
-.footer {
-  background-color: #4A4A4A;
+img {
+  margin: 0;
 }
 
 .button {
   font-family: futura;
-  color: white;
-  background: #01C5CF;
-  box-shadow: none;
-  width: 325px;
-  height: 50px;
-}
-.button:hover {
   color: #01C5CF;
   background: none;
   border: 2px solid #01C5CF;
   box-shadow: none;
+  line-height: 16px;
+  width: 325px;
+  height: 50px;
+}
+.button:hover {
+  color: white;
+  background: #01C5CF;
+  box-shadow: none;
 }
 
 body {
-  background-color: #CCD3DA;
+  background-color: white;
 }
 
 .card-specs {
   text-align: left;
+}
+
+footer.page-footer {
+  background-color: white;
+}
+
+
+div.container {
+  color: #4a4a4a;
+  font-size: 12px;
+  margin: 0;
+  padding-left: 10.5px;
+}
+
+li:active {
+  background-color: red;
 }
