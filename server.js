@@ -105,7 +105,7 @@ app.get('/api/parts/', function(req, res) {
 
   //post new drone to the database
     app.post('/api/drone/', function(req, res) {
-      db.Drone.create(req.body.part, function(err, succ) {
+      db.Drone.create(req.body, function(err, succ) {
 
           if (err){
             res.send(err);
