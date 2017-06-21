@@ -194,7 +194,8 @@ var Parts = [
   }
 ];
 
-
+db.Drone.remove({}, function(err, drones){
+  console.log('removed all drones')
 db.Part.remove({}, function(err, parts) {
   console.log('removed all parts');
   db.Part.create(Parts, function(err, parts){
@@ -205,4 +206,5 @@ db.Part.remove({}, function(err, parts) {
     console.log('seeded all parts');
     console.log('created', parts.length, 'parts');
   });
+});
 });
