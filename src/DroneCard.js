@@ -12,8 +12,8 @@ class DroneCard extends Component {
           ChosenPartName={chosenPart.name}
           ChosenPartPrice={chosenPart.price}
           ChosenPartLink={chosenPart.link}
-          ChosenPartUniqueID={chosenPart['_id']}
-          currentPart={this.props.currentPart}>
+          ChosenPartCategory={chosenPart.category}
+          ChosenPartUniqueID={chosenPart['_id']}>
           </DroneComp>
       )
     })

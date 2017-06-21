@@ -13,12 +13,14 @@ class Partscard extends Component {
     this.finishDrone = this.props.finishDrone.bind(this);
   }
 
-  componenteWillReceiveProps(nextProps) {
-    console.log("Current Parts: ", this.props.currentPart);
-    if(this.props.currentPart !== nextProps.currentPart) {
-      this.iteratePartsForward(nextProps.currentPart)
-    }
-  }
+  // componenteWillReceiveProps(nextProps) {
+  //   console.log("Current Parts: ", this.props.currentPart);
+  //   if(this.props.currentPart !== nextProps.currentPart) {
+  //     this.iteratePartsForward(nextProps.currentPart)
+  //   } else {
+  //     this.iteratePartsBackward(nextProps.currentPart)
+  //   }
+  // }
   render() {
     let partNodes = this.props.parts.map(part => {
       return (
@@ -28,6 +30,7 @@ class Partscard extends Component {
           price={ part.price }
           key={ part['_id']}
           link={ part.link }
+          category={ part.category }
           addID={ part['_id']}
           addParttoDrone={ this.addParttoDrone }>
           </PartComp>
@@ -39,7 +42,6 @@ if(this.props.counter === 9){
   button = <Button onClick={ this.finishDrone }>Submit</Button>
 } else {
   button = <Button onClick={ this.iteratePartsForward }>Next</Button>
-
 }
     return (
       <Row>

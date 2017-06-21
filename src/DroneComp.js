@@ -5,7 +5,7 @@ import './App.css';
 class DroneComp extends Component {
   render() {
     return(
-        <CollapsibleItem header={this.props.currentPart} icon='link'>
+        <CollapsibleItem header={this.props.ChosenPartCategory} icon='link'>
           <p>Part Name: {this.props.ChosenPartName}</p>
           <p>Part Price:${this.props.ChosenPartPrice}</p>
           <a href={this.props.ChosenPartLink}>Link to Part</a>
