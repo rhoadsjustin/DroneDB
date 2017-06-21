@@ -37,31 +37,37 @@ div.slider {
 .slide-one h3 {
   display: inline;
   background-color: #01C5CF;
+  padding: 5px 10px 5px 10px;
 }
 
 .slide-one h5 {
   display: inline;
   background-color: #01C5CF;
+  padding: 5px 10px 5px 10px;
 }
 
 .slide-two h3 {
   display: inline;
   background-color: #01C5CF;
+  padding: 5px 10px 5px 10px;
 }
 
 .slide-two h5 {
   display: inline;
   background-color: #01C5CF;
+  padding: 5px 10px 5px 10px;
 }
 
 .slide-three h3 {
   display: inline;
   background-color: #01C5CF;
+  padding: 5px 10px 5px 10px;
 }
 
 .slide-three h5 {
   display: inline;
   background-color: #01C5CF;
+  padding: 5px 10px 5px 10px;
 }
 
 .card-specs {
@@ -78,4 +84,8 @@ div.container {
   font-size: 12px;
   margin: 0;
   padding-left: 10.5px;
+}
+
+li.indicator-item:active {
+  background-color: red;
 }
