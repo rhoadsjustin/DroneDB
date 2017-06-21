@@ -5,7 +5,6 @@
 .navbar {
   background: #444444;
   box-shadow: none;
-  margin-bottom: -20px;
 }
 
 
@@ -30,6 +29,47 @@ body {
   background-color: white;
 }
 
+div.slider {
+  margin-top: -20px;
+  margin-bottom: 20px;
+}
+
+.slide-one h3 {
+  display: inline;
+  background-color: #01C5CF;
+  padding: 5px 10px 5px 10px;
+}
+
+.slide-one h5 {
+  display: inline;
+  background-color: #01C5CF;
+  padding: 5px 10px 5px 10px;
+}
+
+.slide-two h3 {
+  display: inline;
+  background-color: #01C5CF;
+  padding: 5px 10px 5px 10px;
+}
+
+.slide-two h5 {
+  display: inline;
+  background-color: #01C5CF;
+  padding: 5px 10px 5px 10px;
+}
+
+.slide-three h3 {
+  display: inline;
+  background-color: #01C5CF;
+  padding: 5px 10px 5px 10px;
+}
+
+.slide-three h5 {
+  display: inline;
+  background-color: #01C5CF;
+  padding: 5px 10px 5px 10px;
+}
+
 .card-specs {
   text-align: left;
 }
@@ -46,6 +86,6 @@ div.container {
   padding-left: 10.5px;
 }
 
-li:active {
+li.indicator-item:active {
   background-color: red;
 }

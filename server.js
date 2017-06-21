@@ -44,12 +44,26 @@ router.route('/nuke').get(function(req,res){
   });
 });
 
+app.get('/api/categories', function(req, res) {
+  db.Part.find(function(err, foundParts){
+    if(err){return console.log(err)}
+    var uniqueCategories = {};
+    function unique(foundParts) {
+      return foundParts.filter(function(part) {
+        return uniqueCategories.hasOwnProperty(part.category) ? false : (uniqueCategories[part.category] = true);
+      })
+    }
+    var uniqueHash = unique(foundParts).map(part => {
+      return part.category;
+    });
+    res.json({categories: uniqueHash});
+  })
+})
 //add /parts route to our /api router here
-// router.route('/api/parts')
   //retrieve all parts from the database
 app.get('/api/parts/', function(req, res) {
     //looks at our Part Schema
-
+    console.log('I got hit: Searching: ', req.query.category)
     if(req.query.category){
 
       db.Part.find({category: req.query.category}, function(err, parts) {
@@ -89,19 +103,18 @@ app.get('/api/parts/', function(req, res) {
 
 
 
-  // //post new drone to the database
-  //   .post(function(req, res) {
-  //     var drone = new Drone();
-  //     //body parser lets us use the req.body
-  //     comment.author = req.body.author;
-  //     comment.text = req.body.text;
-  //
-  //     comment.save(function(err) {
-  //       if (err)
-  //         res.send(err);
-  //       res.json({ message: 'Comment successfully added!' });
-  //     });
-  //   });
+  //post new drone to the database
+    app.post('/api/drone', function(req, res) {
+      db.Drone.create(req.body, function(err, succ) {
+
+          if (err){
+            res.send(err);
+          }
+          res.json({ drone: 'drone successfully added!' }, res);
+        });
+      });
+
+
 
 //use router config when we call /API
 app.use('/api', router);
