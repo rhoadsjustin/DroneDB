@@ -110,19 +110,10 @@ app.get('/api/parts/', function(req, res) {
           if (err){
             res.send(err);
           }
-          res.json({ message: 'Comment successfully added!' });
+          res.json({ drone: 'drone successfully added!' }, res);
         });
       });
-      // //body parser lets us use the req.body
-      // drone.frame = req.body.part._frame;
-      // drone.electronicSpeedController = req.body.part._esc;
-      // drone.motor = req.body.part._motor;
-      // drone.flightController = req.body.part._fc;
-      // drone.videoTransmitter = req.body.part._vt;
-      // drone.propeller = req.body.part._prop;
-      // drone.camera = req.body.part._camera;
-      // drone.transmitter = req.body.part._trans;
-      // drone.goggle = req.body.part._goggle;
+
 
 
 //use router config when we call /API
