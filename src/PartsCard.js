@@ -7,19 +7,21 @@ import './App.css';
 class Partscard extends Component {
   constructor(props) {
     super(props);
-    this.iterateParts = this.props.iterateParts.bind(this);
+    this.iteratePartsForward = this.props.iteratePartsForward.bind(this);
+    this.iteratePartsBackward = this.props.iteratePartsBackward.bind(this);
   }
 
   componenteWillReceiveProps(nextProps) {
     console.log("Current Parts: ", this.props.currentPart);
     if(this.props.currentPart !== nextProps.currentPart) {
-      this.iterateParts(nextProps.currentPart)
+      this.iteratePartsForward(nextProps.currentPart)
     }
   }
   render() {
     let partNodes = this.props.parts.map(part => {
       return (
         <PartComp
+          uniqueID={ part.id }
           name={ part.name }
           price={ part.price }
           key={ part['_id']}
@@ -27,7 +29,6 @@ class Partscard extends Component {
           </PartComp>
       )
     })
-    console.log(this.props);
     return (
       <Row>
         <Col s={6} m={10} l={6}>
@@ -36,8 +37,8 @@ class Partscard extends Component {
             	{ partNodes }
             </Collapsible>
             <div className='center'>
-            <Button onClick={ this.iterateParts }>Next</Button>
-            <Button>Previous</Button>
+            <Button onClick={ this.iteratePartsBackward }>Previous</Button>
+            <Button onClick={ this.iteratePartsForward }>Next</Button>
             </div>
         </Col>
         </Row>
