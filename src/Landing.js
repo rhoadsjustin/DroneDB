@@ -18,12 +18,12 @@ class Landing extends Component {
                 className="slide-one"
             		src={slider1}
                 placement="left">
-            		<h3>Welcome to Drone DB.</h3><br/><h5>Let us help you build your first racing drone.</h5>
+            		<h3>Welcome to Drone DB</h3><br/><h5>Let us help you build your first racing drone.</h5>
             	</Slide>
             	<Slide
                 className="slide-two"
             		src={slider2}
-            		placement="right"><h3>Click Below.</h3><br/><h5>We'll walk you through the rest.</h5>
+            		placement="right"><h3>Click Below</h3><br/><h5>We'll walk you through the rest.</h5>
             	</Slide>
             	<Slide
                 className="slide-three"

@@ -79,11 +79,3 @@ div.container {
   margin: 0;
   padding-left: 10.5px;
 }
-
-li.indicator-item {
-  background-color: red;
-}
-
-footer.page-footer {
-  flex: 1 0 auto;
-}
