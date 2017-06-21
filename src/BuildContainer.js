@@ -3,10 +3,12 @@ import {Row} from 'react-materialize';
 import $ from 'jquery';
 import Dronecard from './DroneCard.js';
 import Partscard from './PartsCard.js';
-import OverviewCard from './OverviewCard.js';
 var _COUNTER = 0;
 let newDrone = {};
+let currentDroneVisualList = [];
 let finished = false;
+let currentPart = {};
+
 class BuildContainer extends Component {
   constructor(props) {
     super(props);
@@ -18,10 +20,7 @@ class BuildContainer extends Component {
           link: '',
           category: ''
         }
-      ],
-      newDrone: {
-
-      }
+      ]
     }
     this.iteratePartsForward = this.iteratePartsForward.bind(this);
     this.iteratePartsBackward = this.iteratePartsBackward.bind(this);
@@ -31,6 +30,7 @@ class BuildContainer extends Component {
 
   loadCategoriesFromServer() {
     // grabbing the categories from the database and putting them in an array and then loading the first category
+    _COUNTER = 0;
     $.ajax({
       method: 'GET',
       url: 'http://localhost:3001/api/categories'
@@ -41,8 +41,8 @@ class BuildContainer extends Component {
       })
 
       this.setState({
-        currentPart: res.categories[this.state.counter],
-        categories: res.categories
+        categories: res.categories,
+        currentPart: res.categories[this.state.counter]
          });
       $.ajax({
         method: 'GET',
@@ -91,8 +91,25 @@ class BuildContainer extends Component {
 iteratePartsBackward(e) {
   // increment counter to update current category to the previous part category chosen
   e.preventDefault();
-    if(_COUNTER >= 0){
+    if(_COUNTER > 0){
       _COUNTER = _COUNTER - 1;
+      this.setState({
+        counter : _COUNTER,
+        currentPart: this.state.categories[this.state.counter],
+        categories: this.state.categories
+      });
+      $.ajax({
+        method: 'GET',
+        url: `http://localhost:3001/api/parts?category=${this.state.categories[this.state.counter]}`
+      })
+      .then((res) => {
+        this.setState({
+          parts: res.parts
+        });
+      }, (err) => {
+        console.log('get parts error', err)
+      })
+    } else {
       this.setState({
         counter : _COUNTER,
         currentPart: this.state.categories[this.state.counter],
@@ -112,23 +129,25 @@ iteratePartsBackward(e) {
     }
   }
 
-  addParttoDrone(e, partID) {
+  addParttoDrone(e, partID, name, price, link, category) {
+    console.log("THIS IS THE PART YOU HAVE CHOSEN: ", name + ' ' + price + ' ' + link);
     e.preventDefault();
     console.log("PARTID in add: ", partID);
     newDrone[this.state.currentPart] = partID;
-    console.log(newDrone)
+    currentPart = {name: name, price: price, link: link, category: category};
+    currentDroneVisualList.push(currentPart);
+    console.log(currentDroneVisualList);
   }
 
   finishDrone(e) {
     e.preventDefault();
-    console.log(newDrone);
+      _COUNTER++;
     $.ajax({
       method: 'POST',
       url: 'http://localhost:3001/api/drone',
       data: newDrone
     }).then((res) => {
       console.log("your post was successful: ", res);
-      _COUNTER = _COUNTER + 1;
   }, (err) => {
     console.log("it didn't post, you are sad: ", err);
   })
@@ -141,17 +160,16 @@ iteratePartsBackward(e) {
     let output = null;
     if(finished) {
       output = <div>
-              <OverviewCard
-                newDrone={newDrone}/>
               <Dronecard />
             </div>
     } else {
       output =
       <div>
-              <Dronecard />
+              <Dronecard
+                currentDrone={currentDroneVisualList}
+                currentPart={this.state.currentPart}/>
               <Partscard
                 counter={_COUNTER}
-                partsChosen={this.partsList}
                 addParttoDrone={this.addParttoDrone}
                 iteratePartsBackward={this.iteratePartsBackward}
                 iteratePartsForward={this.iteratePartsForward}

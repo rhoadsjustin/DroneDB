@@ -110,8 +110,28 @@ app.get('/api/parts/', function(req, res) {
           if (err){
             res.send(err);
           }
-          res.json({ drone: 'drone successfully added!' }, res);
+          res.json({ drone: 'drone successfully added!' });
         });
+      });
+
+    //get all drones
+    app.get('/api/drone', function(req, res) {
+      db.Drone.find({})
+        .populate('frame')
+        .populate('camera')
+        .populate('motor')
+        .populate('electronicSpeedController')
+        .populate('flightController')
+        .populate('videoTransmitter')
+        .populate('propeller')
+        .populate('transmitter')
+        .populate('goggle')
+        .exec(function(err, allDrones){
+          if(err) {
+            res.send(err);
+          }
+          res.json(allDrones);
+        })
       });
 
 
