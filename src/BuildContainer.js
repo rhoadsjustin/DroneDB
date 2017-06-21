@@ -4,7 +4,8 @@ import $ from 'jquery';
 import Dronecard from './DroneCard.js';
 import Partscard from './PartsCard.js';
 var _COUNTER = 0;
-
+let partsList=[];
+let newDrone = {};
 class BuildContainer extends Component {
   constructor(props) {
     super(props);
@@ -16,7 +17,10 @@ class BuildContainer extends Component {
           link: '',
           category: ''
         }
-      ]
+      ],
+      newDrone: {
+
+      }
     }
     this.iteratePartsForward = this.iteratePartsForward.bind(this);
     this.iteratePartsBackward = this.iteratePartsBackward.bind(this);
@@ -107,23 +111,16 @@ iteratePartsBackward(e) {
 
   addParttoDrone(e, partID) {
     e.preventDefault();
-    console.log("PARTID in add: ", partID)
-    this.setState({
-      counter : _COUNTER,
-      currentPart: this.state.categories[this.state.counter],
-      categories: this.state.categories,
-      parts: this.state.parts,
-      newDrone: {
-        _frame: partID
-      }
-    });
-    console.log(this.state.newDrone);
+    console.log("PARTID in add: ", partID);
+    newDrone[this.state.currentPart] = partID;
+    console.log(newDrone)
   }
   render() {
     return (
       <Row>
         <Dronecard />
         <Partscard
+          partsChosen={this.partsList}
           addParttoDrone={this.addParttoDrone}
           iteratePartsBackward={this.iteratePartsBackward}
           iteratePartsForward={this.iteratePartsForward}
