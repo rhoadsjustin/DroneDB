@@ -6,7 +6,10 @@ import Partscard from './PartsCard.js';
 import OverviewCard from './OverviewCard.js';
 var _COUNTER = 0;
 let newDrone = {};
+let currentDroneVisualList = [];
 let finished = false;
+let currentPart = {};
+
 class BuildContainer extends Component {
   constructor(props) {
     super(props);
@@ -18,10 +21,7 @@ class BuildContainer extends Component {
           link: '',
           category: ''
         }
-      ],
-      newDrone: {
-
-      }
+      ]
     }
     this.iteratePartsForward = this.iteratePartsForward.bind(this);
     this.iteratePartsBackward = this.iteratePartsBackward.bind(this);
@@ -31,6 +31,7 @@ class BuildContainer extends Component {
 
   loadCategoriesFromServer() {
     // grabbing the categories from the database and putting them in an array and then loading the first category
+    _COUNTER = 0;
     $.ajax({
       method: 'GET',
       url: 'http://localhost:3001/api/categories'
@@ -41,8 +42,8 @@ class BuildContainer extends Component {
       })
 
       this.setState({
-        currentPart: res.categories[this.state.counter],
-        categories: res.categories
+        categories: res.categories,
+        currentPart: res.categories[this.state.counter]
          });
       $.ajax({
         method: 'GET',
@@ -112,16 +113,18 @@ iteratePartsBackward(e) {
     }
   }
 
-  addParttoDrone(e, partID) {
+  addParttoDrone(e, partID, name, price, link) {
+    console.log("THIS IS THE PART YOU HAVE CHOSEN: ", name + ' ' + price + ' ' + link);
     e.preventDefault();
     console.log("PARTID in add: ", partID);
     newDrone[this.state.currentPart] = partID;
-    console.log(newDrone)
+    currentPart = {name: name, price: price, link: link};
+    currentDroneVisualList.push(currentPart);
+    console.log(currentDroneVisualList);
   }
 
   finishDrone(e) {
     e.preventDefault();
-    console.log(newDrone);
     $.ajax({
       method: 'POST',
       url: 'http://localhost:3001/api/drone',
@@ -148,10 +151,11 @@ iteratePartsBackward(e) {
     } else {
       output =
       <div>
-              <Dronecard />
+              <Dronecard
+                currentDrone={currentDroneVisualList}
+                currentPart={this.state.currentPart}/>
               <Partscard
                 counter={_COUNTER}
-                partsChosen={this.partsList}
                 addParttoDrone={this.addParttoDrone}
                 iteratePartsBackward={this.iteratePartsBackward}
                 iteratePartsForward={this.iteratePartsForward}
