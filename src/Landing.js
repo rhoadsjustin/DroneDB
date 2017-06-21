@@ -3,8 +3,8 @@ import {Slider, Slide, Button, Icon, Row} from 'react-materialize';
 import {Link} from 'react-router-dom';
 import './App.css';
 import slider1 from './drone1.gif';
-import slider2 from './drone2.jpg';
-import slider3 from './drone3.jpg';
+import slider2 from './drone2.jpeg';
+import slider3 from './drone3.png';
 
 
 
@@ -13,26 +13,28 @@ class Landing extends Component {
     return (
       <div>
         <Row>
-          <Slider>
+          <Slider className="slider">
             	<Slide
+                className="slide-one"
             		src={slider1}
-            		title="Welcome to Drone DB">
-            		Let us help you build your first racing drone!
+                placement="left">
+            		<h3>Welcome to Drone DB</h3><br/><br/><h5>Let us help you build your first racing drone.</h5>
             	</Slide>
             	<Slide
+                className="slide-two"
             		src={slider2}
-            		title="Click Below"
-            		placement="left">
+            		placement="right"><h3>Click Below</h3><br/><br/><h5>We'll walk you through the rest.</h5>
             	</Slide>
             	<Slide
+                className="slide-three"
             		src={slider3}
-            		placement="right">
+            		placement="left"><h3>Easy Customization</h3><br/><br/><h5>Make it your own.</h5>
             	</Slide>
           </Slider>
         </Row>
         <Row className='center'>
           <Link to={'/build'}>
-            <Button className='button' large waves='light'>Start Your Drone Build<Icon left className='icon'>build</Icon></Button>
+            <Button className='button' large waves='light'>Start Your Drone Build<Icon right className='icon'>build</Icon></Button>
           </Link>
         </Row>
       </div>

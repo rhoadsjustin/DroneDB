@@ -5,9 +5,11 @@ import OverviewCard from './OverviewCard.js';
 class Gallery extends Component {
   render() {
     return (
-      <Row>
-        <OverviewCard />
-      </Row>
+      <div>
+          <Row>
+            <OverviewCard />
+          </Row>
+      </div>
     )
   }
 }
