@@ -3,9 +3,10 @@ import {Row} from 'react-materialize';
 import $ from 'jquery';
 import Dronecard from './DroneCard.js';
 import Partscard from './PartsCard.js';
+import OverviewCard from './OverviewCard.js';
 var _COUNTER = 0;
-let partsList=[];
 let newDrone = {};
+let finished = false;
 class BuildContainer extends Component {
   constructor(props) {
     super(props);
@@ -25,6 +26,7 @@ class BuildContainer extends Component {
     this.iteratePartsForward = this.iteratePartsForward.bind(this);
     this.iteratePartsBackward = this.iteratePartsBackward.bind(this);
     this.addParttoDrone = this.addParttoDrone.bind(this);
+    this.finishDrone = this.finishDrone.bind(this);
   }
 
   loadCategoriesFromServer() {
@@ -65,8 +67,9 @@ class BuildContainer extends Component {
   iteratePartsForward(e){
     // increment counter to update current category to the next part category chosen
     e.preventDefault();
-    if(_COUNTER < 9){
+    if(_COUNTER <= 9){
       _COUNTER = _COUNTER + 1;
+      console.log(_COUNTER);
       this.setState({
         counter : _COUNTER,
         currentPart: this.state.categories[this.state.counter],
@@ -115,17 +118,51 @@ iteratePartsBackward(e) {
     newDrone[this.state.currentPart] = partID;
     console.log(newDrone)
   }
+
+  finishDrone(e) {
+    e.preventDefault();
+    console.log(newDrone);
+    $.ajax({
+      method: 'POST',
+      url: 'http://localhost:3001/api/drone',
+      data: newDrone
+    }).then((res) => {
+      console.log("your post was successful: ", res);
+      _COUNTER = _COUNTER + 1;
+  }, (err) => {
+    console.log("it didn't post, you are sad: ", err);
+  })
+}
+
   render() {
+    if(_COUNTER === 10){
+      finished = true;
+    }
+    let output = null;
+    if(finished) {
+      output = <div>
+              <OverviewCard
+                newDrone={newDrone}/>
+              <Dronecard />
+            </div>
+    } else {
+      output =
+      <div>
+              <Dronecard />
+              <Partscard
+                counter={_COUNTER}
+                partsChosen={this.partsList}
+                addParttoDrone={this.addParttoDrone}
+                iteratePartsBackward={this.iteratePartsBackward}
+                iteratePartsForward={this.iteratePartsForward}
+                currentPart={this.state.currentPart}
+                finishDrone={this.finishDrone}
+                parts={this.state.parts} />
+      </div>
+                }
     return (
       <Row>
-        <Dronecard />
-        <Partscard
-          partsChosen={this.partsList}
-          addParttoDrone={this.addParttoDrone}
-          iteratePartsBackward={this.iteratePartsBackward}
-          iteratePartsForward={this.iteratePartsForward}
-          currentPart={this.state.currentPart}
-          parts={this.state.parts} />
+          {output}
       </Row>
     )
   }

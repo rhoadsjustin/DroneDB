@@ -10,6 +10,7 @@ class Partscard extends Component {
     this.iteratePartsForward = this.props.iteratePartsForward.bind(this);
     this.iteratePartsBackward = this.props.iteratePartsBackward.bind(this);
     this.addParttoDrone = this.props.addParttoDrone.bind(this);
+    this.finishDrone = this.props.finishDrone.bind(this);
   }
 
   componenteWillReceiveProps(nextProps) {
@@ -32,6 +33,14 @@ class Partscard extends Component {
           </PartComp>
       )
     })
+    console.log("COUNTER: ", this.props.counter)
+    let button = null;
+if(this.props.counter === 9){
+  button = <Button onClick={ this.finishDrone }>Submit</Button>
+} else {
+  button = <Button onClick={ this.iteratePartsForward }>Next</Button>
+
+}
     return (
       <Row>
         <Col s={6} m={10} l={6}>
@@ -41,8 +50,8 @@ class Partscard extends Component {
             </Collapsible>
             <div className='center'>
             <Button onClick={ this.iteratePartsBackward }>Previous</Button>{'  '}
-            <Button onClick={ this.iteratePartsForward }>Next</Button>
-            </div>
+            { button }
+          </div>
         </Col>
         </Row>
     )
