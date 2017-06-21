@@ -9,6 +9,7 @@ class Partscard extends Component {
     super(props);
     this.iteratePartsForward = this.props.iteratePartsForward.bind(this);
     this.iteratePartsBackward = this.props.iteratePartsBackward.bind(this);
+    this.addParttoDrone = this.props.addParttoDrone.bind(this);
   }
 
   componenteWillReceiveProps(nextProps) {
@@ -21,11 +22,13 @@ class Partscard extends Component {
     let partNodes = this.props.parts.map(part => {
       return (
         <PartComp
-          uniqueID={ part.id }
+          uniqueID={ part['_id'] }
           name={ part.name }
           price={ part.price }
           key={ part['_id']}
-          link={ part.link }>
+          link={ part.link }
+          addID={ part['_id']}
+          addParttoDrone={ this.addParttoDrone }>
           </PartComp>
       )
     })
@@ -37,7 +40,7 @@ class Partscard extends Component {
             	{ partNodes }
             </Collapsible>
             <div className='center'>
-            <Button onClick={ this.iteratePartsBackward }>Previous</Button>
+            <Button onClick={ this.iteratePartsBackward }>Previous</Button>{'  '}
             <Button onClick={ this.iteratePartsForward }>Next</Button>
             </div>
         </Col>

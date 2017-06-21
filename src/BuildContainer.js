@@ -8,7 +8,6 @@ var _COUNTER = 0;
 class BuildContainer extends Component {
   constructor(props) {
     super(props);
-
     this.state = {
       parts: [
         {
@@ -21,16 +20,11 @@ class BuildContainer extends Component {
     }
     this.iteratePartsForward = this.iteratePartsForward.bind(this);
     this.iteratePartsBackward = this.iteratePartsBackward.bind(this);
+    this.addParttoDrone = this.addParttoDrone.bind(this);
   }
-
-  loadPartsFromServer() {
-    console.log(this.state.categories[0]);
-
-  }
-
-
 
   loadCategoriesFromServer() {
+    // grabbing the categories from the database and putting them in an array and then loading the first category
     $.ajax({
       method: 'GET',
       url: 'http://localhost:3001/api/categories'
@@ -61,6 +55,7 @@ class BuildContainer extends Component {
   }
 
   componentDidMount() {
+    // grabbing the categories from the database and putting them in an array and then loading the first category as the component mounts
     this.loadCategoriesFromServer()
   }
   iteratePartsForward(e){
@@ -86,34 +81,50 @@ class BuildContainer extends Component {
     })
   }
 }
-iteratePartsBackward(e){
-  // increment counter to update current category to the next part category chosen
+iteratePartsBackward(e) {
+  // increment counter to update current category to the previous part category chosen
   e.preventDefault();
-  if(_COUNTER >= 0){
-    _COUNTER = _COUNTER - 1;
+    if(_COUNTER >= 0){
+      _COUNTER = _COUNTER - 1;
+      this.setState({
+        counter : _COUNTER,
+        currentPart: this.state.categories[this.state.counter],
+        categories: this.state.categories
+      });
+      $.ajax({
+        method: 'GET',
+        url: `http://localhost:3001/api/parts?category=${this.state.categories[this.state.counter]}`
+      })
+      .then((res) => {
+        this.setState({
+          parts: res.parts
+        });
+      }, (err) => {
+        console.log('get parts error', err)
+      })
+    }
+  }
+
+  addParttoDrone(e, partID) {
+    e.preventDefault();
+    console.log("PARTID in add: ", partID)
     this.setState({
       counter : _COUNTER,
       currentPart: this.state.categories[this.state.counter],
-      categories: this.state.categories
+      categories: this.state.categories,
+      parts: this.state.parts,
+      newDrone: {
+        _frame: partID
+      }
     });
-  $.ajax({
-    method: 'GET',
-    url: `http://localhost:3001/api/parts?category=${this.state.categories[this.state.counter]}`
-  })
-  .then((res) => {
-    this.setState({
-      parts: res.parts
-    });
-  }, (err) => {
-    console.log('get parts error', err)
-  })
-}
-}
+    console.log(this.state.newDrone);
+  }
   render() {
     return (
       <Row>
         <Dronecard />
         <Partscard
+          addParttoDrone={this.addParttoDrone}
           iteratePartsBackward={this.iteratePartsBackward}
           iteratePartsForward={this.iteratePartsForward}
           currentPart={this.state.currentPart}
