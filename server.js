@@ -114,6 +114,26 @@ app.get('/api/parts/', function(req, res) {
         });
       });
 
+    //get all drones
+    app.get('/api/drone', function(req, res) {
+      db.Drone.find({})
+        .populate('frame')
+        .populate('camera')
+        .populate('motor')
+        .populate('electronicSpeedController')
+        .populate('flightController')
+        .populate('videoTransmitter')
+        .populate('propeller')
+        .populate('transmitter')
+        .populate('goggle')
+        .exec(function(err, allDrones){
+          if(err) {
+            res.send(err);
+          }
+          res.json(allDrones);
+        })
+      });
+
 
 
 //use router config when we call /API

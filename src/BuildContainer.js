@@ -3,7 +3,6 @@ import {Row} from 'react-materialize';
 import $ from 'jquery';
 import Dronecard from './DroneCard.js';
 import Partscard from './PartsCard.js';
-import OverviewCard from './OverviewCard.js';
 var _COUNTER = 0;
 let newDrone = {};
 let currentDroneVisualList = [];

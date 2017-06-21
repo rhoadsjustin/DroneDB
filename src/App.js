@@ -6,7 +6,7 @@ import Footer from './Footer.js'
 import Profile from './Profile.js'
 import Landing from './Landing.js';
 import BuildContainer from './BuildContainer.js';
-import Gallery from './Gallery.js'
+import GalleryContainer from './GalleryContainer.js';
 
 class App extends Component {
   render() {
@@ -18,7 +18,7 @@ class App extends Component {
         <div>
           <Route exact path='/' component={Landing} />
           <Route path='/build' component={BuildContainer} />
-          <Route path='/gallery' component={Gallery} />
+          <Route path='/gallery' component={GalleryContainer} />
           <Route path='/profile' component={Profile} />
         </div>
 
