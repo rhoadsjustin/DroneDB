@@ -22,7 +22,8 @@ class DroneCard extends Component {
           <Card header={<CardTitle reveal image={drone3} waves="light" />}
             title="Flip card for reverse side."
             reveal={<div>
-                  <h5>Your Drone Being Built!</h5>
+                  <hr/>
+                  <p>Your Current Drone:</p>
                   <Collapsible>
                     { partsListNodes }
                   </Collapsible>
