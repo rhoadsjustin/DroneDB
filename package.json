@@ -2,6 +2,7 @@
   "name": "droneDB",
   "version": "0.1.0",
   "private": false,
+  "homepage": "https://drone-database.herokuapp.com/",
   "dependencies": {
     "body-parser": "^1.17.2",
     "dotenv": "^4.0.0",
