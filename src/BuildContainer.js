@@ -3,10 +3,10 @@ import {Row} from 'react-materialize';
 import $ from 'jquery';
 import Dronecard from './DroneCard.js';
 import Partscard from './PartsCard.js';
+import OverviewCard from './OverviewCard.js';
 var _COUNTER = 0;
 let newDrone = {};
 let currentDroneVisualList = [];
-let finished = false;
 let currentPart = {};
 
 class BuildContainer extends Component {
@@ -20,7 +20,7 @@ class BuildContainer extends Component {
           link: '',
           category: ''
         }
-      ]
+      ], finished: false
     }
     this.iteratePartsForward = this.iteratePartsForward.bind(this);
     this.iteratePartsBackward = this.iteratePartsBackward.bind(this);
@@ -133,34 +133,37 @@ iteratePartsBackward(e) {
     console.log("THIS IS THE PART YOU HAVE CHOSEN: ", name + ' ' + price + ' ' + link);
     e.preventDefault();
     console.log("PARTID in add: ", partID);
-    newDrone[this.state.currentPart] = partID;
+    newDrone[this.state.currentPart] = partID || null;
     currentPart = {name: name, price: price, link: link, category: category};
     currentDroneVisualList.push(currentPart);
     console.log(currentDroneVisualList);
   }
 
+
   finishDrone(e) {
     e.preventDefault();
-      _COUNTER++;
+    _COUNTER++;
     $.ajax({
       method: 'POST',
       url: 'http://localhost:3001/api/drone',
       data: newDrone
     }).then((res) => {
       console.log("your post was successful: ", res);
-  }, (err) => {
-    console.log("it didn't post, you are sad: ", err);
-  })
-}
+      this.setState({
+        finished: true
+      })
+    }, (err) => {
+      console.log("it didn't post, you are sad: ", err);
+    })
+  }
+
 
   render() {
-    if(_COUNTER === 10){
-      finished = true;
-    }
     let output = null;
-    if(finished) {
+    if(this.state.finished) {
       output = <div>
-              <Dronecard />
+              <OverviewCard
+                currentDroneVisualList={currentDroneVisualList}/>
             </div>
     } else {
       output =
