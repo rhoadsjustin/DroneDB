@@ -12,24 +12,47 @@ class GalleryCard extends Component {
               reveal={
                 <Collapsible>
                   <CollapsibleItem header='Frame'>
-                    <p>Part: {this.props.droneFrame}</p>
-                    <a href={this.props.droneFrameLink}></a>
+
+                    <a href={this.props.droneFrameLink}><p>Part: {this.props.droneFrame}</p></a>
+
                   </CollapsibleItem>
                   <CollapsibleItem header='Electronic Speed Controller'>
-                    <p>Part: {this.props.droneESC}</p>
-                    <a href={this.props.droneESCLink}></a>
+                    <a href={this.props.droneESCLink}><p>Part: {this.props.droneESC}</p></a>
+
                   </CollapsibleItem>
                   <CollapsibleItem header='Motor'>
-                    <p>Part: {this.props.droneMotor}</p>
-                    <a href={this.props.droneMotorLink}></a>
+
+                    <a href={this.props.droneMotorLink}><p>Part: {this.props.droneMotor}</p></a>
+
                   </CollapsibleItem>
                   <CollapsibleItem header='Flight Controller'>
-                    <p>Part: {this.props.droneFC}</p>
-                    <a href={this.props.droneFCLink}></a>
+                    <a href={this.props.droneFCLink}><p>Part: {this.props.droneFC}</p></a>
+
                   </CollapsibleItem>
                   <CollapsibleItem header='Propeller'>
-                    <p>Part: {this.props.droneProp}</p>
-                    <a href={this.props.dronePropLink}></a>
+
+                    <a href={this.props.dronePropLink}><p>Part: {this.props.droneProp}</p></a>
+
+                  </CollapsibleItem>
+                  <CollapsibleItem header='Video Transmitter'>
+
+                    <a href={this.props.droneVTLink}><p>Part: {this.props.droneVT}</p></a>
+
+                  </CollapsibleItem>
+                  <CollapsibleItem header='Camera'>
+
+                    <a href={this.props.droneCameraLink}><p>Part: {this.props.droneCamera}</p></a>
+
+                  </CollapsibleItem>
+                  <CollapsibleItem header='Goggle'>
+
+                    <a href={this.props.droneGogglesLink}><p>Part: {this.props.droneGoggles}</p></a>
+
+                  </CollapsibleItem>
+                  <CollapsibleItem header='Transmitter'>
+
+                    <a href={this.props.droneTransmitterLink}><p>Part: {this.props.droneTransmitter}</p></a>
+
                   </CollapsibleItem>
                 </Collapsible>
               }>
