@@ -46,7 +46,7 @@ if(this.props.counter === 9){
     return (
       <Row>
         <Col s={6} m={10} l={6}>
-            <h5>Here are the available {this.props.currentPart}s  </h5>
+            <h5 className="part-header">Choose from the available {this.props.currentPart}s.</h5>
             <Collapsible popout>
             	{ partNodes }
             </Collapsible>

@@ -11,9 +11,9 @@ class PartComp extends Component {
     return(
       <CollapsibleItem header={this.props.name} icon='build'>
         <p>${this.props.price}</p>
-        <a href={this.props.link}>Go to Part</a>
+        <a className='part-link' href={this.props.link}>Go to Part</a>
         <p className='right'>Add to my Drone</p>
-        <Button floating className='red right' waves='light' icon='add' onClick={e => this.addParttoDrone(e, this.props.addID, this.props.name, this.props.price, this.props.link, this.props.category)}></Button>
+        <Button floating className='right' waves='light' icon='add' onClick={e => this.addParttoDrone(e, this.props.addID, this.props.name, this.props.price, this.props.link, this.props.category)}></Button>
       </CollapsibleItem>
     )
   }
