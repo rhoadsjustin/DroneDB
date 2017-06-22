@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Row, Card, Col, Collapsible, Chip, CardTitle} from 'react-materialize';
+import {Row} from 'react-materialize';
 import GalleryCard from './GalleryCard.js'
 
 class Gallery extends Component {

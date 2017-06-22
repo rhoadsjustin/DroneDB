@@ -22,6 +22,7 @@ class Partscard extends Component {
   //   }
   // }
   render() {
+    console.log(this.props.parts)
     let partNodes = this.props.parts.map(part => {
       return (
         <PartComp

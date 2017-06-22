@@ -20,7 +20,8 @@ class BuildContainer extends Component {
           link: '',
           category: ''
         }
-      ], finished: false
+      ],
+      finished: false
     }
     this.iteratePartsForward = this.iteratePartsForward.bind(this);
     this.iteratePartsBackward = this.iteratePartsBackward.bind(this);
@@ -38,8 +39,7 @@ class BuildContainer extends Component {
     .then((res) => {
       this.setState({
         counter: _COUNTER
-      })
-
+      });
       this.setState({
         categories: res.categories,
         currentPart: res.categories[this.state.counter]
@@ -50,8 +50,9 @@ class BuildContainer extends Component {
       })
       .then((res) => {
         this.setState({
-          parts: res.parts
-        });
+          parts: res
+        })
+        console.log(this.state.parts)
       }, (err) => {
         console.log('get parts error', err)
       })
@@ -81,7 +82,7 @@ class BuildContainer extends Component {
     })
     .then((res) => {
       this.setState({
-        parts: res.parts
+        parts: res
       });
     }, (err) => {
       console.log('get parts error', err)
@@ -104,7 +105,7 @@ iteratePartsBackward(e) {
       })
       .then((res) => {
         this.setState({
-          parts: res.parts
+          parts: res
         });
       }, (err) => {
         console.log('get parts error', err)
@@ -121,7 +122,7 @@ iteratePartsBackward(e) {
       })
       .then((res) => {
         this.setState({
-          parts: res.parts
+          parts: res
         });
       }, (err) => {
         console.log('get parts error', err)
@@ -159,6 +160,7 @@ iteratePartsBackward(e) {
 
 
   render() {
+    console.log(this.state.parts)
     let output = null;
     if(this.state.finished) {
       output = <div>

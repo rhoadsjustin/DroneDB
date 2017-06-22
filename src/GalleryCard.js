@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {Row, Card, Col, Collapsible, CollapsibleItem, Chip, CardTitle} from 'react-materialize';
+import {Card, Col, Collapsible, CollapsibleItem, Chip, CardTitle} from 'react-materialize';
 import slider2 from './drone2.jpeg'
 import './App.css';
 
