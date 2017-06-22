@@ -71,7 +71,7 @@ app.get('/api/parts/', function(req, res) {
           res.send(err);
         }
         //responds with a json object of our database parts.
-        res.json({parts: parts});
+        res.json(parts);
       });
 
     } else {
@@ -80,7 +80,7 @@ app.get('/api/parts/', function(req, res) {
         if (err)
         res.send(err);
         //responds with a json object of our database parts.
-        res.json({parts: parts});
+        res.json(parts)
       });
     }
   })
