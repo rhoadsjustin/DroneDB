@@ -133,7 +133,7 @@ iteratePartsBackward(e) {
     console.log("THIS IS THE PART YOU HAVE CHOSEN: ", name + ' ' + price + ' ' + link);
     e.preventDefault();
     console.log("PARTID in add: ", partID);
-    newDrone[this.state.currentPart] = partID;
+    newDrone[this.state.currentPart] = partID || null;
     currentPart = {name: name, price: price, link: link, category: category};
     currentDroneVisualList.push(currentPart);
     console.log(currentDroneVisualList);

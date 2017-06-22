@@ -6,7 +6,7 @@ class GalleryContainer extends Component {
   constructor() {
     super()
     this.state = {
-      drones: {  }
+      drones: []
     }
   }
   componentDidMount(){
