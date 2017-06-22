@@ -18,7 +18,7 @@ class Landing extends Component {
                 className="slide-one"
             		src={slider1}
                 placement="left">
-            		<h3>Welcome to Drone DB</h3><br/><br/><h5>Let us help you build your first racing drone.</h5>
+            		<h3>Welcome to DroneDB</h3><br/><br/><h5>Let us help you build your first racing drone.</h5>
             	</Slide>
             	<Slide
                 className="slide-two"

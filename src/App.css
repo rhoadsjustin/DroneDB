@@ -10,7 +10,6 @@
 
 
 .button {
-  font-family: futura;
   color: #01C5CF;
   background: none;
   border: 2px solid #01C5CF;
@@ -88,4 +87,49 @@ div.container {
 
 li.indicator-item:active {
   background-color: red;
+}
+
+.collapsible-header {
+  color: black;
+}
+
+.btn {
+  color: #01C5CF;
+  background: none;
+  border: 2px solid #01C5CF;
+  box-shadow: none;
+  line-height: 16px;
+}
+
+.btn:hover {
+  color: white;
+  background: #01C5CF;
+  box-shadow: none;
+}
+
+div.center {
+  margin-top: 5%;
+}
+
+.btn.right {
+  color: white;
+  background: #01C5CF;
+  margin: 0;
+}
+.btn.right:hover {
+  color: (255, 255, 255, .7);
+  background: rgba(1, 197, 207, .7);
+}
+
+.part-header {
+  margin-top: 25%;
+  margin: 25% 20px 5% 25px;
+}
+
+.part-link {
+  color: #b7bdc4;
+}
+
+.part-link:hover {
+  color: #7a7e82;
 }
