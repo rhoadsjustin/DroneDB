@@ -6,7 +6,7 @@ class GalleryContainer extends Component {
   constructor() {
     super()
     this.state = {
-      drones: {  }
+      drones: []
     }
   }
   componentDidMount(){
@@ -19,7 +19,7 @@ class GalleryContainer extends Component {
       url: 'http://localhost:3001/api/drone'
     }).then((res) => {
       this.setState({
-        drones: res[0]
+        drones: res
       })
       console.log(this.state.drones)
   }, (err) => {
@@ -33,7 +33,8 @@ class GalleryContainer extends Component {
 render() {
   return(
     <div>
-      <Gallery />
+      <Gallery
+        allDrones={this.state.drones}/>
     </div>
   )
 }
