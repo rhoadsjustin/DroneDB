@@ -3,8 +3,7 @@ import {Row} from 'react-materialize';
 import GalleryCard from './GalleryCard.js'
 
 class Gallery extends Component {
-  render() {
-    console.log(this.props.allDrones);
+  componentDidMount(){
     let allDronesNodes = this.props.allDrones.map(drone => {
       return(
       <GalleryCard
@@ -30,6 +29,9 @@ class Gallery extends Component {
         </GalleryCard>
       )
     })
+  }
+  render() {
+    console.log(this.props.allDrones);
     return (
       <div>
         <Row>
