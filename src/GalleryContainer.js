@@ -16,7 +16,7 @@ class GalleryContainer extends Component {
   getDrones(){
     $.ajax({
       method: 'GET',
-      url: '/drone'
+      url: '/api/drone'
     }).then((res) => {
       this.setState({
         drones: res

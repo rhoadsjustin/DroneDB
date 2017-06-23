@@ -34,7 +34,7 @@ class BuildContainer extends Component {
     _COUNTER = 0;
     $.ajax({
       method: 'GET',
-      url: '/categories'
+      url: '/api/categories'
     })
     .then((res) => {
       this.setState({
@@ -46,7 +46,7 @@ class BuildContainer extends Component {
          });
       $.ajax({
         method: 'GET',
-        url: `/parts?category=${this.state.categories[this.state.counter]}`
+        url: `/api/parts?category=${this.state.categories[this.state.counter]}`
       })
       .then((res) => {
         this.setState({
@@ -78,7 +78,7 @@ class BuildContainer extends Component {
       });
     $.ajax({
       method: 'GET',
-      url: `/parts?category=${this.state.categories[this.state.counter]}`
+      url: `/api/parts?category=${this.state.categories[this.state.counter]}`
     })
     .then((res) => {
       this.setState({
@@ -101,7 +101,7 @@ iteratePartsBackward(e) {
       });
       $.ajax({
         method: 'GET',
-        url: `/parts?category=${this.state.categories[this.state.counter]}`
+        url: `/api/parts?category=${this.state.categories[this.state.counter]}`
       })
       .then((res) => {
         this.setState({
@@ -118,7 +118,7 @@ iteratePartsBackward(e) {
       });
       $.ajax({
         method: 'GET',
-        url: `/parts?category=${this.state.categories[this.state.counter]}`
+        url: `/api/parts?category=${this.state.categories[this.state.counter]}`
       })
       .then((res) => {
         this.setState({
@@ -146,7 +146,7 @@ iteratePartsBackward(e) {
     _COUNTER++;
     $.ajax({
       method: 'POST',
-      url: '/drone',
+      url: '/api/drone',
       data: newDrone
     }).then((res) => {
       console.log("your post was successful: ", res);
