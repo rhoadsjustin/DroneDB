@@ -34,7 +34,7 @@ class BuildContainer extends Component {
     _COUNTER = 0;
     $.ajax({
       method: 'GET',
-      url: 'http://localhost:3001/api/categories'
+      url: '/categories'
     })
     .then((res) => {
       this.setState({
@@ -46,7 +46,7 @@ class BuildContainer extends Component {
          });
       $.ajax({
         method: 'GET',
-        url: `http://localhost:3001/api/parts?category=${this.state.categories[this.state.counter]}`
+        url: `/parts?category=${this.state.categories[this.state.counter]}`
       })
       .then((res) => {
         this.setState({
@@ -78,7 +78,7 @@ class BuildContainer extends Component {
       });
     $.ajax({
       method: 'GET',
-      url: `http://localhost:3001/api/parts?category=${this.state.categories[this.state.counter]}`
+      url: `/parts?category=${this.state.categories[this.state.counter]}`
     })
     .then((res) => {
       this.setState({
