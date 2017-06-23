@@ -19,7 +19,7 @@ class Gallery extends Component {
           droneFCLink={drone['flightController'].link}
           droneProp={drone['propeller'].name}
           dronePropLink={drone['propeller'].link}
-          droneVT={drone['videoTransmitter'].name}
+          
           droneVTLink={drone['videoTransmitter'].link}
           droneCamera={drone['camera'].name}
           droneCameraLink={drone['camera'].link}
