@@ -8,7 +8,7 @@ import './index.css';
 dotenv.config({path: './.env'})
 ReactDOM.render(
   <App
-  url='https://dronedatabase.herokuapp.com/api/parts' />,
+  url='https://dronedatabase.herokuapp.com/' />,
    document.getElementById('root')
  );
 registerServiceWorker();
