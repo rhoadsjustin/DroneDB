@@ -34,7 +34,7 @@ class BuildContainer extends Component {
     _COUNTER = 0;
     $.ajax({
       method: 'GET',
-      url: '/api/categories'
+      url: 'https://drone-db-api.herokuapp.com/api/categories'
     })
     .then((res) => {
       this.setState({
@@ -46,7 +46,7 @@ class BuildContainer extends Component {
          });
       $.ajax({
         method: 'GET',
-        url: `/api/parts?category=${this.state.categories[this.state.counter]}`
+        url: `https://drone-db-api.herokuapp.com/api/parts?category=${this.state.categories[this.state.counter]}`
       })
       .then((res) => {
         this.setState({
@@ -78,7 +78,7 @@ class BuildContainer extends Component {
       });
     $.ajax({
       method: 'GET',
-      url: `/api/parts?category=${this.state.categories[this.state.counter]}`
+      url: `https://drone-db-api.herokuapp.com/api/parts?category=${this.state.categories[this.state.counter]}`
     })
     .then((res) => {
       this.setState({
@@ -101,7 +101,7 @@ iteratePartsBackward(e) {
       });
       $.ajax({
         method: 'GET',
-        url: `/api/parts?category=${this.state.categories[this.state.counter]}`
+        url: `https://drone-db-api.herokuapp.com/api/parts?category=${this.state.categories[this.state.counter]}`
       })
       .then((res) => {
         this.setState({
@@ -118,7 +118,7 @@ iteratePartsBackward(e) {
       });
       $.ajax({
         method: 'GET',
-        url: `/api/parts?category=${this.state.categories[this.state.counter]}`
+        url: `https://drone-db-api.herokuapp.com/api/parts?category=${this.state.categories[this.state.counter]}`
       })
       .then((res) => {
         this.setState({
