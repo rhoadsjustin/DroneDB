@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {Row, Navbar, NavItem} from 'react-materialize';
 import {Link} from 'react-router-dom';
-import Brandlogo from './drone-logo2.png';
+import Brandlogo from './imgs/drone-logo2.png';
 
 
 
@@ -18,10 +18,7 @@ render() {
           <Navbar className='navbar' brand={<div><img src={Brandlogo} width='150' height='auto' alt='Drone DB Logo'></img></div>} href='/' right>
             <NavItem><Link to={'/build'}>Build a Drone</Link></NavItem>
             <NavItem><Link to={'/gallery'}>Gallery</Link></NavItem>
-            <NavItem>{ !this.props.currentUser ?
-              <NavItem><Link to='#' onClick={event => this.props.loginButtonClicked(event)}>Login</Link></NavItem> :
-              <NavItem><Link to='#' onClick={event => this.props.logoutButtonClicked(event)}>Logout</Link></NavItem>}
-            </NavItem>
+            <NavItem><Link to={'/about'}>About DroneDB</Link></NavItem>
           </Navbar>
         </Row>
 

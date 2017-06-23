@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { Col, Card, CardTitle, Row, Chip, Button, Collapsible} from 'react-materialize'
+import { Col, Card, CardTitle, Row, Chip, Button, Collapsible} from 'react-materialize';
+import {Link} from 'react-router-dom';
 import './App.css';
-import slider2 from './drone2.jpeg';
+import slider2 from './imgs/DroneCard.png';
 import OverviewComp from './OverviewComp.js';
 
 class OverviewCard extends Component {
@@ -39,7 +40,9 @@ class OverviewCard extends Component {
             <blockquote>
               It is better to create than to learn! Creating is the essence life. -Julius Caesar
             </blockquote>
+            <Link to={'/gallery'}>
             <Button large icon='art track' onClick={'/gallery'}>Check out other drones here</Button>
+            </Link>
           </Col>
         </Row>
 

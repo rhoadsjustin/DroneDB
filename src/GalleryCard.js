@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import {Card, Col, Collapsible, CollapsibleItem, Chip, CardTitle} from 'react-materialize';
-import slider2 from './DroneCard.png'
+import slider2 from './imgs/DroneCard.png'
 import './App.css';
 
 class GalleryCard extends Component {

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Col, Card, CardTitle, Collapsible} from 'react-materialize';
 import DroneComp from './DroneComp.js'
-import drone3 from './drone3.png';
+import drone3 from './imgs/drone3.png';
 
 class DroneCard extends Component {
 

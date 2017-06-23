@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 // import {Row} from 'react-materialize';
 import {BrowserRouter as Router, Route} from 'react-router-dom';
 import NavbarComp from './NavbarComp.js'
-import Footer from './Footer.js'
-import Profile from './Profile.js'
+import Footer from './Footer.js';
+import About from './About.js'
 import Landing from './Landing.js';
 import BuildContainer from './BuildContainer.js';
 import GalleryContainer from './GalleryContainer.js';
@@ -64,7 +64,7 @@ render() {
           <Route exact path='/' component={Landing} />
           <Route path='/build' component={BuildContainer} />
           <Route path='/gallery' component={GalleryContainer} />
-          <Route path='/profile' component={Profile} />
+          <Route path='/about' component={About} />
         </div>
 
         <Footer />

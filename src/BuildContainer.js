@@ -136,7 +136,12 @@ iteratePartsBackward(e) {
     console.log("PARTID in add: ", partID);
     newDrone[this.state.currentPart] = partID || null;
     currentPart = {name: name, price: price, link: link, category: category};
-    currentDroneVisualList.push(currentPart);
+    if (currentDroneVisualList.includes(currentPart.category)) {
+      let updateSpot =  currentDroneVisualList.indexOf(currentPart.category);
+      currentDroneVisualList[updateSpot] = currentPart;
+    } else {
+      currentDroneVisualList.push(currentPart);
+    }
     console.log(currentDroneVisualList);
   }
 

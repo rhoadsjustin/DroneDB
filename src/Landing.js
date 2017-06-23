@@ -2,9 +2,9 @@ import React, { Component } from 'react';
 import {Slider, Slide, Button, Icon, Row} from 'react-materialize';
 import {Link} from 'react-router-dom';
 import './App.css';
-import slider1 from './drone1.gif';
-import slider2 from './drone2.jpeg';
-import slider3 from './drone3.png';
+import slider1 from './imgs/drone1.gif';
+import slider2 from './imgs/drone2.jpeg';
+import slider3 from './imgs/drone3.png';
 
 
 
