@@ -101,7 +101,7 @@ iteratePartsBackward(e) {
       });
       $.ajax({
         method: 'GET',
-        url: `http://localhost:3001/api/parts?category=${this.state.categories[this.state.counter]}`
+        url: `/parts?category=${this.state.categories[this.state.counter]}`
       })
       .then((res) => {
         this.setState({
@@ -118,7 +118,7 @@ iteratePartsBackward(e) {
       });
       $.ajax({
         method: 'GET',
-        url: `http://localhost:3001/api/parts?category=${this.state.categories[this.state.counter]}`
+        url: `/parts?category=${this.state.categories[this.state.counter]}`
       })
       .then((res) => {
         this.setState({
@@ -146,7 +146,7 @@ iteratePartsBackward(e) {
     _COUNTER++;
     $.ajax({
       method: 'POST',
-      url: 'http://localhost:3001/api/drone',
+      url: '/drone',
       data: newDrone
     }).then((res) => {
       console.log("your post was successful: ", res);
