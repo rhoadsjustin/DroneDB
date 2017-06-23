@@ -146,7 +146,7 @@ iteratePartsBackward(e) {
     _COUNTER++;
     $.ajax({
       method: 'POST',
-      url: '/api/drone',
+      url: 'https://drone-db-api.herokuapp.com/api/drone',
       data: newDrone
     }).then((res) => {
       console.log("your post was successful: ", res);
